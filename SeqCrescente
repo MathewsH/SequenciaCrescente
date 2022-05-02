@@ -1,0 +1,47 @@
+<?php
+    function SEQUENCIACRESCENTE($array){
+        $count=0;
+        $arrayCres=[];
+        $guarda=0;
+        $contador=0;
+        $final=count($array);
+        for($x=0;$x<count($array);$x++){
+            if($count<=1){
+                for($y=$x;$y<count($array);$y++){
+                    if($x != $y){
+                        if($array[$x] == $array[$y]){
+                            $contador++;
+                            if($contador>1){
+                               $count++; 
+                            }
+                            
+                        }
+                    }
+                    if($array[$x] > $array[$y]){
+                        $count++;
+                        if($y<count($array)-1){
+                            if($array[$x] > $array[$y+1]){
+                                $x++;
+                            } 
+                        }
+                        
+                    }
+
+                }
+                if($x==count($array)-1){
+                    echo 'True';
+                    return True;
+                }
+
+            }
+            else{
+                echo 'False';
+                echo $count;
+                return False;
+            }
+        }
+
+    }
+    SEQUENCIACRESCENTE(
+        [1, 1, 2, 3, 4, 4]
+					  );
